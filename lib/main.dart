@@ -81,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     });
                   }
                 },
-                child: (isSessaBig) ? Text('Gjør Sessa stor') : Text('Gjør Sessa liten'),
+                child: (isSessaBig) ? Text('Gjør Sessa liten') : Text('Gjør Sessa stor'),
               ),
             ],
           ),
