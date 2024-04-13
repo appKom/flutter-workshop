@@ -1,7 +1,11 @@
+import 'package:barbord/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import '../core/client.dart';
 
 void main() {
+  Client.getEvents(pages: [1]);
+
   runApp(const MyApp());
 }
 
@@ -81,7 +85,16 @@ class _MyHomePageState extends State<MyHomePage> {
                     });
                   }
                 },
-                child: (isSessaBig) ? Text('Gjør Sessa liten') : Text('Gjør Sessa stor'),
+                child: (isSessaBig) ? const Text('Gjør Sessa liten') : const Text('Gjør Sessa stor'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HomePage()),
+                  );
+                },
+                child: const Text('HomePage'),
               ),
             ],
           ),

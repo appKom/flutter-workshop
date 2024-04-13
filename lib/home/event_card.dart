@@ -1,9 +1,10 @@
-import 'package:flutter/cupertino.dart';
+import 'package:barbord/core/models/event_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class EventCard extends StatelessWidget {
-  const EventCard({super.key});
+  const EventCard({super.key, required this.event});
+
+  final EventModel event;
 
   @override
   Widget build(BuildContext context) {
@@ -13,29 +14,33 @@ class EventCard extends StatelessWidget {
       width: 300,
       child: Stack(
         children: [
-          const Positioned(
+          Positioned(
             top: 20,
             left: 20,
-            child: Text('Tittel'),
+            child: Text(event.title),
           ),
           Positioned(
             right: 0,
             child: SizedBox(
               height: 150,
               width: 150,
-              child: Image.asset('assets/images/sessa.jpg'),
+              child: Image.network(event.images.first.thumb),
             ),
           ),
-          const Positioned(
+          Positioned(
             top: 40,
             left: 20,
-            child: Text('Dato'),
+            child: Text('${event.startDate}'),
           ),
-          const Positioned(
+          Positioned(
             top: 80,
             left: 20,
-            child: Text('6/9'),
+            child: Text("${event.numberOfSeatsTaken} / ${event.maxCapacity.toString()}"),
           ),
+          Container(
+            height: 5,
+            color: Colors.black,
+          )
         ],
       ),
     );
